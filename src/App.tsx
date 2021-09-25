@@ -1,24 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import { Header } from "./components/Header";
+import { TicketsCard } from "./components/TicketsCard";
+import { DropTicketSection } from "./components/DropTicketSection";
+import { useDispatch } from "react-redux";
+import { bindActionCreators } from "redux";
+import { drawCardActionCreators } from "./state/action-creators/drawCard.action-creator";
 
 function App() {
+  const dispatch = useDispatch();
+  const { getCards } = bindActionCreators(drawCardActionCreators, dispatch);
+  useEffect(() => {
+    getCards();
+  });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="flex flex-col w-screen">
+      <Header />
+
+      <section className="flex flex-row space-x-10 justify-center mt-10">
+        <TicketsCard />
+        <DropTicketSection />
+      </section>
     </div>
   );
 }
