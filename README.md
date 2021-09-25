@@ -14,3 +14,4 @@
 - draw ticket UI
 - footer is not done
 - all the links in the header bar
+- No responsive layout
