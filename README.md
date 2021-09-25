@@ -1,5 +1,10 @@
 ## Replication of a page as a task
 
+## How to run it
+
+```shell
+yarn start
+```
 
 ### What's working
 
