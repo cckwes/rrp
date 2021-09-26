@@ -25,9 +25,13 @@ export function RewardDrawResult() {
   };
 
   return (
-    <div className="w-full h-full flex flex-col items-center justify-center">
-      <img src="/prize.png" alt="draw ticket prize" />
-      <h2 className="text-xl font-bold mt-11">Congratulations! 🎉</h2>
+    <div className="w-full h-full px-4 py-4 md:py-0 flex flex-col items-center justify-center">
+      <img
+        src="/prize.png"
+        alt="draw ticket prize"
+        className="w-1/2 md:w-full"
+      />
+      <h2 className="text-xl font-bold mt-4 md:mt-11">Congratulations! 🎉</h2>
       <p className="mt-4">
         You’ve just won the <strong>{drawCardState.drawResult.prize}</strong>{" "}
         from the <strong>{getTicketName()} Raffle!</strong>

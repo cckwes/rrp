@@ -13,23 +13,21 @@ export function TicketsCard() {
     return drawCardsCount[cardType] === 0 ? " opacity-25" : "";
   };
 
-  return (
-    <div className="bg-white rounded-xl">
-      <BuyTickets />
-      <hr className="bg-horizontalRuler w-full h-1" />
+  const countIndicatorClassName =
+    "bg-primary block rounded-full h-8 w-8 md:h-10 md:w-10 absolute top-0 right-0 -mr-2 -mt-2 md:-mr-3 md:-mt-3 text-white align-middle text-center leading-8 md:leading-10 md:text-2xl";
 
-      <div className="flex flex-col space-y-4 items-center py-8">
+  return (
+    <div className="bg-white rounded-xl flex flex-col md:flex-col-reverse">
+      <div className="flex flex-row px-2 py-8 space-x-4 md:flex-col md:space-x-0 md:space-y-4 md:items-center">
         <div className="relative">
           <img
             src="/mintable-silver-card-nft.png"
             alt="silver card NFT"
             className={
-              "w-150px" + semiTransparentWhenZeroCount(DrawCardType.SILVER)
+              "md:w-150px" + semiTransparentWhenZeroCount(DrawCardType.SILVER)
             }
           />
-          <div className="bg-primary block rounded-full h-10 w-10 absolute top-0 right-0 -mr-3 -mt-3 text-white align-middle text-center leading-10 text-2xl">
-            {drawCardsCount.silver}
-          </div>
+          <div className={countIndicatorClassName}>{drawCardsCount.silver}</div>
         </div>
 
         <div className="relative">
@@ -37,12 +35,10 @@ export function TicketsCard() {
             src="/mintable-gold-card-nft.png"
             alt="silver card NFT"
             className={
-              "w-150px" + semiTransparentWhenZeroCount(DrawCardType.GOLD)
+              "md:w-150px" + semiTransparentWhenZeroCount(DrawCardType.GOLD)
             }
           />
-          <div className="bg-primary block rounded-full h-10 w-10 absolute top-0 right-0 -mr-3 -mt-3 text-white align-middle text-center leading-10 text-2xl">
-            {drawCardsCount.gold}
-          </div>
+          <div className={countIndicatorClassName}>{drawCardsCount.gold}</div>
         </div>
 
         <div className="relative">
@@ -50,14 +46,18 @@ export function TicketsCard() {
             src="/mintable-diamond-card-nft.png"
             alt="silver card NFT"
             className={
-              "w-150px" + semiTransparentWhenZeroCount(DrawCardType.DIAMOND)
+              "md:w-150px" + semiTransparentWhenZeroCount(DrawCardType.DIAMOND)
             }
           />
-          <div className="bg-primary block rounded-full h-10 w-10 absolute top-0 right-0 -mr-3 -mt-3 text-white align-middle text-center leading-10 text-2xl">
+          <div className={countIndicatorClassName}>
             {drawCardsCount.diamond}
           </div>
         </div>
       </div>
+
+      <hr className="bg-horizontalRuler w-full h-1" />
+
+      <BuyTickets />
     </div>
   );
 }

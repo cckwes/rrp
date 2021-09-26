@@ -9,7 +9,7 @@ export function DrawResultArea() {
     (state: State) => state.drawCard as DrawCardState,
   );
 
-  if (drawCardState.drawResult === "reward") {
+  if (drawCardState.drawResult.result === "reward") {
     return <RewardDrawResult />;
   } else {
     return <NoRewardDrawResult />;

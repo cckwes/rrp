@@ -12,18 +12,10 @@ export function DropTicketSection() {
   );
 
   return (
-    <div className="bg-white rounded-xl flex flex-col items-center justify-between">
-      <section className="flex-grow w-full">
-        {drawingState === "initialized" && <DropTicketArea />}
-        {drawingState === "drawing" && <DrawingTicketArea />}
-        {drawingState === "result-out" && <DrawResultArea />}
-      </section>
-
-      <hr className="border-1 border-horizontalRuler" />
-
-      <section>
-        <DrawTicket />
-      </section>
-    </div>
+    <section className="w-full h-drawing-area md:h-full">
+      {drawingState === "initialized" && <DropTicketArea />}
+      {drawingState === "drawing" && <DrawingTicketArea />}
+      {drawingState === "result-out" && <DrawResultArea />}
+    </section>
   );
 }

@@ -1,10 +1,12 @@
 import React, { useEffect } from "react";
-import { Header } from "./components/Header";
-import { TicketsCard } from "./components/TicketsCard";
-import { DropTicketSection } from "./components/DropTicketSection";
 import { useDispatch } from "react-redux";
 import { bindActionCreators } from "redux";
+import { isMobile } from "react-device-detect";
+
+import { Header } from "./components/Header";
 import { drawCardActionCreators } from "./state/action-creators/drawCard.action-creator";
+import { MobileDrawingLayout } from "./components/MobileDrawingLayout";
+import { DesktopDrawingLayout } from "./components/DesktopDrawingLayout";
 
 function App() {
   const dispatch = useDispatch();
@@ -17,10 +19,7 @@ function App() {
     <div className="flex flex-col w-screen">
       <Header />
 
-      <section className="flex flex-row space-x-10 justify-center mt-10">
-        <TicketsCard />
-        <DropTicketSection />
-      </section>
+      {isMobile ? <MobileDrawingLayout /> : <DesktopDrawingLayout />}
     </div>
   );
 }

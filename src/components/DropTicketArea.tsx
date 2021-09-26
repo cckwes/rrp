@@ -15,13 +15,13 @@ export function DropTicketArea() {
 
   return (
     <div className="w-full flex flex-col items-center">
-      <div className="w-full flex flex-col items-center py-11">
+      <div className="w-full flex flex-col items-center py-4 md:py-11">
         <h1 className="text-3xl font-bold">Collectors Event</h1>
         <h3 className="mt-4">Participate and win high quality currated NFTs</h3>
       </div>
 
-      <div className="px-20">
-        <div className="w-700px h-450px border-2 border-searchBox border-dashed flex flex-col items-center justify-center">
+      <div className="px-4 md:px-20">
+        <div className="px-4 py-4 md:py-0 md:w-700px md:h-drawing-area border-2 border-searchBox border-dashed flex flex-col items-center justify-center">
           <img
             src={
               selectedDrawCard

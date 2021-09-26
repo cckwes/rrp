@@ -29,9 +29,13 @@ export function NoRewardDrawResult() {
   };
 
   return (
-    <div className="w-full h-full flex flex-col items-center justify-center">
-      <img src="/sad-square.png" alt="no reward draw result" />
-      <h2 className="text-xl font-bold mt-11">Awww..Bad Luck 😓</h2>
+    <div className="w-full h-full px-4 py-4 md:py-0 flex flex-col items-center justify-center">
+      <img
+        src="/sad-square.png"
+        alt="no reward draw result"
+        className="w-1/2 md:w-full"
+      />
+      <h2 className="text-xl font-bold mt-4 md:mt-11">Awww..Bad Luck 😓</h2>
       <p className="mt-4">
         Lady luck is not in your favor for this{" "}
         <strong>{getTicketName()} Raffle!</strong>

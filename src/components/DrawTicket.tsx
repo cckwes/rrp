@@ -27,13 +27,13 @@ export function DrawTicket() {
   };
 
   return (
-    <div className="flex flex-row py-10">
+    <div className="flex flex-col items-center px-10 py-4 space-y-4 md:flex-row md:space-y-0 md:space-x-4 md:px-4 md:py-10">
       <img src="/draw-ticket.png" alt="draw ticket" className="w-150px" />
-      <div className="flex flex-col flex-grow">
+      <div className="flex flex-col items-center md:items-start flex-grow">
         <h2 className="text-xl font-bold">Draw Tickets</h2>
         <p className="text-lg">{getTotalDrawCars()} Tickets found</p>
 
-        <p className="mt-">
+        <p className="mt-4 md:mt-2">
           Open your tickets and get a chance to win $1000 worth of high quality
           NFTs! Learn More
         </p>

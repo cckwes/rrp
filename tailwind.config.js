@@ -22,7 +22,7 @@ module.exports = {
         "150px": "150px",
       },
       height: {
-        "450px": "450px",
+        "drawing-area": "5in",
       },
     },
   },
