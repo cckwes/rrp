@@ -1,6 +1,6 @@
-import { TicketsCard } from "./TicketsCard";
-import { DropTicketSection } from "./DropTicketSection";
-import { DrawTicket } from "./DrawTicket";
+import { TicketsCard } from "../components/TicketsCard";
+import { DrawTicketActivitySection } from "../components/DrawTicketActivitySection";
+import { DrawTicketInformationSection } from "../components/DrawTicketInformationSection";
 
 export function DesktopDrawingLayout() {
   return (
@@ -9,11 +9,11 @@ export function DesktopDrawingLayout() {
 
       <div className="bg-white rounded-xl flex flex-col items-center justify-between">
         <section className="md:flex-grow">
-          <DropTicketSection />
+          <DrawTicketActivitySection />
         </section>
 
         <hr className="w-full border-1 border-horizontalRuler" />
-        <DrawTicket />
+        <DrawTicketInformationSection />
       </div>
     </section>
   );

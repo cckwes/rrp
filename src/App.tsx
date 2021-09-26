@@ -5,8 +5,9 @@ import { isMobile } from "react-device-detect";
 
 import { Header } from "./components/Header";
 import { drawCardActionCreators } from "./state/action-creators/drawCard.action-creator";
-import { MobileDrawingLayout } from "./components/MobileDrawingLayout";
-import { DesktopDrawingLayout } from "./components/DesktopDrawingLayout";
+import { MobileDrawingLayout } from "./layout/MobileDrawingLayout";
+import { DesktopDrawingLayout } from "./layout/DesktopDrawingLayout";
+import { Footer } from "./components/Footer";
 
 function App() {
   const dispatch = useDispatch();
@@ -20,6 +21,8 @@ function App() {
       <Header />
 
       {isMobile ? <MobileDrawingLayout /> : <DesktopDrawingLayout />}
+
+      <Footer />
     </div>
   );
 }

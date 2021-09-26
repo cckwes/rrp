@@ -1,4 +1,4 @@
-import { BuyTickets } from "./BuyTickets";
+import { BuyTicketsSection } from "./BuyTicketsSection";
 import { useSelector } from "react-redux";
 import { State } from "../state/store";
 import { DrawCardState } from "../state/reducers/drawCard.reducer";
@@ -57,7 +57,7 @@ export function TicketsCard() {
 
       <hr className="bg-horizontalRuler w-full h-1" />
 
-      <BuyTickets />
+      <BuyTicketsSection />
     </div>
   );
 }

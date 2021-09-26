@@ -5,7 +5,7 @@ import { bindActionCreators } from "redux";
 import { drawCardActionCreators } from "../state/action-creators/drawCard.action-creator";
 import { DrawCardType } from "../state/actions/drawcard.action";
 
-export function DrawTicket() {
+export function DrawTicketInformationSection() {
   const drawCardState = useSelector(
     (state: State) => state.drawCard as DrawCardState,
   );
