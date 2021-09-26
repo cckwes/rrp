@@ -8,15 +8,13 @@ yarn start
 
 ### What's working
 
-- header and draw tickets layout
+- header and draw tickets and footer layout
 - indication for number of draw ticket left
-- state transition for draw ticket
-- selecting of draw ticket
+- "greyed out" ticket when there's no more draw ticket left
+- selection of draw ticket using dropdown
+- state transition for draw ticket (selection, drawing, show draw result)
+- mobile view
 
 ### What's not working
 
 - drag and drop of ticket
-- draw ticket UI
-- footer is not done
-- all the links in the header bar
-- No responsive layout
