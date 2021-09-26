@@ -51,6 +51,8 @@ const startDrawing = () => {
 
     // randomly decide if drawing yields reward or not
     const drawIsRewarding = Math.random() < 0.5;
+    console.log("draw result");
+    console.log(drawIsRewarding);
 
     const payload: RewardingDrawResult | NoRewardDrawResult = drawIsRewarding
       ? {
@@ -66,9 +68,18 @@ const startDrawing = () => {
   };
 };
 
+const resetDrawing = () => {
+  return (dispatch: Dispatch<DrawCardAction>) => {
+    dispatch({
+      type: DrawCardActionType.RESTART_DRAW,
+    });
+  };
+};
+
 export const drawCardActionCreators = {
   getCards,
   unselectDrawCard,
   selectDrawCard,
   startDrawing,
+  resetDrawing,
 };

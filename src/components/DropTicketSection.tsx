@@ -1,42 +1,23 @@
 import { DrawTicket } from "./DrawTicket";
+import { DropTicketArea } from "./DropTicketArea";
 import { useSelector } from "react-redux";
 import { State } from "../state/store";
 import { DrawCardState } from "../state/reducers/drawCard.reducer";
+import { DrawingTicketArea } from "./DrawingTicketArea";
+import { DrawResultArea } from "./DrawResultArea";
 
 export function DropTicketSection() {
-  const selectedDrawCard = useSelector(
-    (state: State) => (state.drawCard as DrawCardState).selectedDrawCard,
+  const drawingState = useSelector(
+    (state: State) => (state.drawCard as DrawCardState).drawState,
   );
-
-  const drawCardImage = {
-    silver: "/mintable-silver-card-nft.png",
-    gold: "/mintable-gold-card-nft.png",
-    diamond: "/mintable-diamond-card-nft.png",
-  };
 
   return (
     <div className="bg-white rounded-xl flex flex-col items-center justify-between">
-      <div className="w-full flex flex-col items-center py-11">
-        <h1 className="text-3xl font-bold">Collectors Event</h1>
-        <h3 className="mt-4">Participate and win high quality currated NFTs</h3>
-      </div>
-
-      <div className="px-20">
-        <div className="w-700px h-450px border-2 border-searchBox border-dashed flex flex-col items-center justify-center">
-          <img
-            src={
-              selectedDrawCard
-                ? drawCardImage[selectedDrawCard]
-                : "/dropping-card.png"
-            }
-            alt="drawing card"
-            className="w-150px"
-          />
-          <p className="mt-5">
-            Drag a ticket or use the button below to draw your tickets
-          </p>
-        </div>
-      </div>
+      <section className="flex-grow w-full">
+        {drawingState === "initialized" && <DropTicketArea />}
+        {drawingState === "drawing" && <DrawingTicketArea />}
+        {drawingState === "result-out" && <DrawResultArea />}
+      </section>
 
       <hr className="border-1 border-horizontalRuler" />
 

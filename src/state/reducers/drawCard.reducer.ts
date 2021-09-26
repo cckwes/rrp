@@ -5,8 +5,11 @@ export interface DrawCardState {
   drawCards: { [k in DrawCardType]: number };
   selectedDrawCard?: DrawCardType;
   drawState: "initialized" | "drawing" | "result-out";
-  drawResult?: "reward" | "no-reward" | "error";
-  drawPrize?: string;
+  drawResult: {
+    drawCardType?: DrawCardType;
+    result?: "reward" | "no-reward" | "error";
+    prize?: string;
+  };
 }
 
 const initialState: DrawCardState = {
@@ -16,6 +19,7 @@ const initialState: DrawCardState = {
     [DrawCardType.DIAMOND]: 0,
   },
   drawState: "initialized",
+  drawResult: {},
 };
 
 export const drawCardReducer = (
@@ -45,17 +49,22 @@ export const drawCardReducer = (
     case DrawCardActionType.DRAW_RESULT:
       return {
         ...state,
+        selectedDrawCard: undefined,
         drawState: "result-out",
-        drawResult: action.payload.result,
-        drawPrize:
-          action.payload.result === "reward" ? action.payload.prize : undefined,
+        drawResult: {
+          drawCardType: state.selectedDrawCard,
+          result: action.payload.result,
+          prize:
+            action.payload.result === "reward"
+              ? action.payload.prize
+              : undefined,
+        },
       };
 
     case DrawCardActionType.RESTART_DRAW:
       return {
         ...state,
-        drawResult: undefined,
-        drawPrize: undefined,
+        drawResult: {},
         selectedDrawCard: undefined,
         drawState: "initialized",
       };
